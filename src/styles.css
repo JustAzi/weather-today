@@ -1,2 +1,14 @@
 h1{
-    color:red;}
+    
+    color:grey;
+    margin-top: auto;
+
+}
+
+.weather{
+    margin: 30px auto;
+        padding: 50px;
+        border: 1px solid #dadde1;
+        border-radius: 5px;  
+        max-width: 600px;    
+}
