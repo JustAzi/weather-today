@@ -8,7 +8,12 @@ function displayTemperature(response){
     descriptionElement.innerHTML=response.data.weather[0].main;
     let humidityElement=document.querySelector("#humidity");
     humidityElement.innerHTML=response.data.main.humidity;
-
+    let windElement=document.querySelector("#wind");
+    windElement.innerHTML=Math.round(response.data.wind.speed);
+    let maxElement=document.querySelector("#max");
+    maxElement.innerHTML=Math.round(response.data.main.temp_max);
+    let minElement=document.querySelector("#min");
+    minElement.innerHTML=Math.round(response.data.main.temp_min);
 }
 
 let apiKey="189e88039ef064d4f633182c04fa597d";
