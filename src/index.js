@@ -48,6 +48,8 @@ function displayTemperature(response){
     minElement.innerHTML=Math.round(response.data.main.temp_min);
     let dateElement = document.querySelector("#date")
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement=document.querySelector("#icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 let apiKey="189e88039ef064d4f633182c04fa597d";
