@@ -13,6 +13,20 @@
     
         
           <div class="weather"> 
+            <div class="conteiner">
+              <form id="search-form" class="mb-3">
+                <div class="row">
+                <div class="col-9">
+            
+            <input type="search" placeholder="Type a city name" class="form-control" id="city-input"
+            autocomplete="off"/>
+                </div>
+            <div class="col-3">
+            <input type="submit" value="Search" class="btn btn primary w-100"/>
+            </div>
+            </form>
+            </div>
+            </div>
           <h1 id="city"></h1>
           <h6 id="date"></h6>
           <div id="description"></div>
@@ -20,7 +34,8 @@
         <img src=""alt="clear"id="icon"/>
         
 <strong id="temperature"></strong>
-        °C| °F</h2>
+       <span id="cel"> °C</span>| <a href="#" id="far-link">°F</a>
+    </h2>
         
         
         <div class="container-fluid">
