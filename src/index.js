@@ -51,9 +51,25 @@ function displayTemperature(response){
     let iconElement=document.querySelector("#icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    
 }
 
-let apiKey="189e88039ef064d4f633182c04fa597d";
-let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=Valencia&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
+function search(city){
+ let apiKey="189e88039ef064d4f633182c04fa597d";
+let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;   
 axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement=document.querySelector("#city-input");
+    search(cityInputElement.value);
+    console.log(cityInputElement.value);
+}
+
+search("New York");
+
+let form=document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+//let farLink=document.querySelector("#far-link");
