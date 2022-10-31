@@ -51,7 +51,7 @@ function displayTemperature(response){
     let iconElement=document.querySelector("#icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
-    
+    celsTemp=response.data.main.temp;
 }
 
 function search(city){
@@ -66,10 +66,28 @@ function handleSubmit(event){
     search(cityInputElement.value);
     console.log(cityInputElement.value);
 }
+function displayFahrTemp(event){
+    event.preventDefault();
+    let fahrTemp=(celsTemp*9)/5+32;
+    
+    let temperatureElement=document.querySelector("#temperature");
+    temperatureElement.innerHTML=Math.round(fahrTemp);
+}
+function displayCelsTemp(event){
+    event.preventDefault();
+
+    let temperatureElement=document.querySelector("#temperature");
+    temperatureElement.innerHTML=Math.round(celsTemp);
+}
+let celsTemp=null;
 
 search("New York");
 
 let form=document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-//let farLink=document.querySelector("#far-link");
+let farLink=document.querySelector("#far-link");
+farLink.addEventListener("click", displayFahrTemp);
+
+let celsLink=document.querySelector("#cels-link");
+celsLink.addEventListener("click", displayCelsTemp);
