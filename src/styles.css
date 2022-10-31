@@ -23,3 +23,6 @@ h2.weather-temperature.active {
   h2.weather-temperature.active:hover {
     text-decoration: none;
   }
+  h6{
+    text-align: center;
+  }
