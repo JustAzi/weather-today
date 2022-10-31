@@ -15,6 +15,11 @@ h1{
 li first-letter{
     text-transform:capitalize;
 }
-.clearfix weather-temperature.active{
-    color:grey;
-}
+h2.weather-temperature.active {
+    color: rgb(33, 33, 33);
+    cursor: default;
+  }
+  
+  h2.weather-temperature.active:hover {
+    text-decoration: none;
+  }
