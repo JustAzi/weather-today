@@ -32,3 +32,11 @@ h2.weather-temperature.active {
   .forecast-temperature{
     font-size:13 px;
   }
+  h5{
+    text-align:center;
+    font-size: 5px;
+  }
+  .button{
+    border-color: grey;
+
+  }
