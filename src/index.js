@@ -31,7 +31,7 @@ function formatDay(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
   
     let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -60,6 +60,14 @@ function displayForecast() {
     forecastElement.innerHTML = forecastHTML;
 }
 
+    function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+};
 
 function displayTemperature(response){
     console.log(response.data);
@@ -83,6 +91,8 @@ function displayTemperature(response){
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
     celsTemp=response.data.main.temp;
+
+    getForecast(response.data.coord);
 }
 
 function search(city){
@@ -114,7 +124,7 @@ function displayCelsTemp(event){
 let celsTemp=null;
 
 search("Valencia");
-displayForecast();
+
 
 let form=document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
