@@ -81,7 +81,7 @@ function displayCelsTemp(event){
 }
 let celsTemp=null;
 
-search("New York");
+search("Valencia");
 
 let form=document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
